@@ -30,5 +30,7 @@ module.exports = {
     "indent": [1, 2],
     "no-unused-vars": 0,
     "quotes": [1, "single"], //引号类型 `` "" ""
+    "spaced-comment": 0, //注释风格要不要有空格什么的
+    "eqeqeq": ["off"], //必须使用全等
   }
 }

@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {
   reqCategory,
-  activeAcctCheck
+  activeAcctCheck,
+  menuList
 } from '../api/index.js'
 
 Vue.use(Vuex)
@@ -24,6 +25,11 @@ export default new Vuex.Store({
     async acctCheck({ commit }, param) {
       console.log(param)
       const result = await activeAcctCheck(param)
+      console.log(result)
+    },
+    async menuList({ commit }, param) {
+      console.log(param)
+      const result = await menuList(param)
       console.log(result)
     }
   }

@@ -26,14 +26,16 @@ export default {
      },
     mounted(){
         // this.$store.dispatch('getAddress');  //另一种启动vuex方式
-        this.getAddress()
+        // this.getAddress()
         let param = {
           kehuzhao: '62162622222222222'
         };
         this.acctCheck(param)
+        var data = { 'CHNL_TYPE': 'MB', 'CLIENT_OS': 'A', 'CLIENT_VER': '1.0.0', 'INCORP_NO': '000090' }
+        this.menuList(data);
     },
     methods:{
-      ...mapActions(['getAddress','acctCheck'])
+      ...mapActions(['getAddress','acctCheck','menuList'])
     },
     computed: {
       ...mapState(['shop']),
