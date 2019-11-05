@@ -19,6 +19,8 @@ export default function ajax(url, data = {}, type = 'GET') {
     } else {
       console.log('不支持其他请求方式')
     }
-    promise.then(response => { resolve(response.data) }).catch(error => { reject(error) })
+    promise.then(response => {
+      resolve(response.data)
+    }).catch(error => { reject(error) })
   })
 }

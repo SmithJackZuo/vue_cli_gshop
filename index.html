@@ -5,9 +5,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
   <title>web</title>
-  <link rel="stylesheet" href="/src/common/reset.css">
-  <script src="/static/js/fastClick.js"></script>
+  <link rel="stylesheet" href="static/css/reset.css">
+  <script src="static/js/fastClick.js"></script>
   <script>
+    (function() {
+      var htmlFontSize = document.documentElement.clientWidth / 375 * 100 + 'px';
+      var bodyFontSize = '16px';
+      var styleDom = document.createElement('style');
+      styleDom.innerHTML = 'html{font-size:' + htmlFontSize +
+        '!important;background-color:#F5F5F5 !important;}body{font-size:' + bodyFontSize +
+        '!important;margin:0 !important;}';
+      document.getElementsByTagName('head')[0].appendChild(styleDom);
+    })();
     if ('addEventListener' in document) {
       document.addEventListener('DOMContentLoaded', function() {
         FastClick.attach(document.body);

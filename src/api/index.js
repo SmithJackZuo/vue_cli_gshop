@@ -1,5 +1,6 @@
 /* 封装ajax函数 */
 import ajax from './ajax'
-
-// const BASE_URL = 'http://localhost:4000'
-export const reqCategory = () => { ajax('/api/index_category') }
+// activAcctCheck
+// const BASE_URL = '/api'
+export const reqCategory = () => ajax('/api/index_category')
+export const activeAcctCheck = (data) => ajax('/api/activAcctCheck', data, 'POST')

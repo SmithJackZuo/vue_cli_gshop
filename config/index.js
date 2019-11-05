@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://localhost:4000',
+        // target: 'http://localhost:4000',
+        target: 'http://emalltest.lsccb.com:18080/sit_resource/',
         // target: "http://172.16.83.50:9080",
         changeOrigin: true,
         pathRewrite: {
