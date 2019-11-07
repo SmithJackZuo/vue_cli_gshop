@@ -21,8 +21,8 @@ export default {
     methods:{
         qrcode(address) {
             let qrcode = new QRCode('qrcode', {
-                width: 132,  
-                height: 132,
+                width: 180,  
+                height: 180,
                 text: address, // 二维码地址
             })
         }
