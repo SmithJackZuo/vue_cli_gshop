@@ -3,7 +3,8 @@ import Vuex from 'vuex'
 import {
   reqCategory,
   activeAcctCheck,
-  menuList
+  menuList,
+  smsSendRgeisE
 } from '../api/index.js'
 
 Vue.use(Vuex)
@@ -30,6 +31,11 @@ export default new Vuex.Store({
     async menuList({ commit }, param) {
       console.log(param)
       const result = await menuList(param)
+      console.log(result)
+    },
+    async sms({ commit }, param) {
+      console.log(param)
+      const result = await smsSendRgeisE(param)
       console.log(result)
     }
   }

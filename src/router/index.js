@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // const sharePage=()=>import('../pages/sharePage/sharePage.vue')   //路由懒加载
-import SharePage from '../pages/sharePage/sharePage.vue'
+import depositShare from '../pages/depositShare/depositShare.vue'
 
 Vue.use(VueRouter)
 
@@ -11,11 +11,11 @@ export default new VueRouter({
 
     {
       path: '/',
-      redirect: '/sharePage'
+      redirect: '/depositShare'
     },
     {
-      path: '/sharePage',
-      component: SharePage
+      path: '/depositShare',
+      component: depositShare
     }
   ]
 })

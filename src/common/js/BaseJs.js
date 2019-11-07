@@ -91,3 +91,14 @@ export function getHeader() {
   }
   return requestBody
 }
+
+export function getDeviceOS() {
+  let u = navigator.userAgent;
+  let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者UC浏览器
+  let isIOS = Boolean(u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)); //IOS终端
+  if (isAndroid) {
+    return 'android';
+  } else if (isIOS) {
+    return 'ios';
+  }
+}

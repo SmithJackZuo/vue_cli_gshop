@@ -1,12 +1,12 @@
 <template>
     <div id="app">
        <router-view></router-view>
-       <SharePage></SharePage>
+       <depositShare></depositShare>
     </div>
 </template>
 <script>
-import SharePage from './pages/sharePage/sharePage.vue';
+import depositShare from './pages/depositShare/depositShare.vue';
 export default {
-    components: { SharePage }
+    components: { depositShare }
 }
 </script>

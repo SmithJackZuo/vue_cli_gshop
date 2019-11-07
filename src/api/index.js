@@ -6,3 +6,4 @@ const baseUrl = '/api/ares-mobile-gateway/common'
 export const reqCategory = () => ajax('/api/index_category')
 export const activeAcctCheck = (data) => ajax(baseUrl + '/activAcctCheck.do', data, 'POST')
 export const menuList = (data) => ajax(baseUrl + '/menuListQry.do', data, 'POST')
+export const smsSendRgeisE = (data) => ajax(baseUrl + '/smsSendRgeis.do', data, 'POST')
