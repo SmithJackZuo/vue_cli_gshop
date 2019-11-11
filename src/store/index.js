@@ -1,42 +1,42 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {
-  reqCategory,
-  activeAcctCheck,
-  menuList,
-  smsSendRgeisE
+  moneyManageList,
+  depositManageList
 } from '../api/index.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    shop: []
+    moneyList: '',
+    depositList: ''
   },
   mutations: {
-    shopMu(state, data) {
-      state.shop = data
+    moneyListMu(state, data) {
+      state.moneyList = data.LIST
+    },
+    depositListMu(state, data) {
+      console.log(data)
+      state.depositList = data
     }
   },
   actions: {
-    async getAddress({ commit }) {
-      const result = await reqCategory()
-      commit('shopMu', { address: result.data })
+    async moneyListQry({ commit }, param) {
+      const result = await moneyManageList(param)
+      if (result.body.STATUS === '1') {
+        commit('moneyListMu', result.body)
+      }
     },
-    async acctCheck({ commit }, param) {
+    async depositListQry({ commit }, param) {
       console.log(param)
-      const result = await activeAcctCheck(param)
-      console.log(result)
-    },
-    async menuList({ commit }, param) {
-      console.log(param)
-      const result = await menuList(param)
-      console.log(result)
-    },
-    async sms({ commit }, param) {
-      console.log(param)
-      const result = await smsSendRgeisE(param)
-      console.log(result)
+      const result = await depositManageList({
+        DEPOSIT_ID: param.id,
+        DEPOSIT_TYPE: param.type
+      })
+      if (result.body.STATUS === '1') {
+        commit('depositListMu', result.body)
+      }
     }
   }
 })

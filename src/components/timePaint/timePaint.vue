@@ -1,5 +1,5 @@
 <template>
-  <div class="mmg_periodPaint">
+  <div class="mmg_periodPaint" style="padding-bottom: 0.1rem;">
     <canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
     <div id="des"
       class="mmg_periodPaint_text">
@@ -23,8 +23,7 @@
   &_periodPaint {
     width: 100%;
     text-align: center;
-    margin-top: 0.14rem;
-
+    background-color: #fff;
     &_text {
       display: flex;
       font-size: 0.12rem;
@@ -50,16 +49,53 @@ export default {
   data() {
     return {
         padding: 0.15, //canvas的左右边距，单位:rem
-        dates: ['11','22','33'], //产品周期日期
+        dates: [], //产品周期日期
         type: 0, //产品类型
         index: -1,
         width: 0.7
         };
   },
-  mounted(){
-    this.paint();
+  watch:{
+    timeData(newval){
+     let type = newval.period_type, //产品类型
+        closeType = "1", //封闭式
+        now = getTimeNoFormate(); //获取当前时间，判断产品跑到那个生命周期了
+      this.type = type;
+      let dates = [
+        type === closeType ? newval.subs_begin_date : newval.subs_begin_date,
+        type === closeType ? newval.value_date : newval.open_begin_date,
+        type === closeType ? newval.winding_date : newval.winding_date
+      ];
+      this.dates = dates;
+      if (now >= dates[0] && now <= dates[1]) {
+        this.index = 0;
+        document
+          .getElementById("des")
+          .getElementsByTagName("section")[0].style.color = "#999";
+        document
+          .getElementById("des")
+          .getElementsByTagName("section")[1].style.color = "#999";
+      } else if (now >= dates[1] && now <= dates[2]) {
+        this.index = 1;
+        document
+          .getElementById("des")
+          .getElementsByTagName("section")[1].style.color = "#999";
+        document
+          .getElementById("des")
+          .getElementsByTagName("section")[2].style.color = "#999";
+      } else if (now > dates[2]) {
+        this.index = 2;
+        document
+          .getElementById("des")
+          .getElementsByTagName("section")[2].style.color = "#999";
+      }
+      this.paint();
+    }
   },
-   methods: {
+  mounted(){
+    
+  },
+  methods: {
     rem2px(value) {
       return value * ((screen.availWidth * 100) / 375);
     },
@@ -194,7 +230,9 @@ export default {
     canvasWidth() {
       return screen.availWidth - this.rem2px(this.padding * 2);
     }
-  }
+  },
+  props: ['timeData'],
+  
 }
 </script>
 
