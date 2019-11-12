@@ -77,7 +77,7 @@ export default {
   watch: {
     moneyList(val){
       val.forEach((val,key) => {
-          if(this.GetRequest().id==val.prod_code){
+          if(this.GetRequest().id===val.prod_code){
               this.currentProduct= val;
               this.balance=(val.total_quota-val.canuser_amt)/10000+ '万元'
               this.timeTerm=this.currentProduct.prod_days+"天"
