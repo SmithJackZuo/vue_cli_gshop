@@ -3,7 +3,9 @@ import axios from 'axios'
 import {
   getHeader
 } from '../common/js/BaseJs.js'
+import returnUrl from './resource'
 
+// axios.defaults.baseURL = returnUrl()
 export default function ajax(url, data = {}, type = 'GET') {
   return new Promise(function(resolve, reject) {
     let promise
