@@ -17,7 +17,6 @@ export default new Vuex.Store({
       state.moneyList = data.LIST
     },
     depositListMu(state, data) {
-      console.log(data)
       state.depositList = data
     }
   },
@@ -29,7 +28,6 @@ export default new Vuex.Store({
       }
     },
     async depositListQry({ commit }, param) {
-      console.log(param)
       const result = await depositManageList({
         DEPOSIT_ID: param.id,
         DEPOSIT_TYPE: param.type

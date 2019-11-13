@@ -5,7 +5,8 @@ import {
 } from '../common/js/BaseJs.js'
 import returnUrl from './resource'
 
-// axios.defaults.baseURL = returnUrl()
+axios.defaults.baseURL = returnUrl() //生产环境
+
 export default function ajax(url, data = {}, type = 'GET') {
   return new Promise(function(resolve, reject) {
     let promise

@@ -142,7 +142,6 @@ export default {
   created() {
     // let productID=Window.localti
     // this.GetRequest()    
-    // console.log(this.GetRequest())
     //  this.$store.dispatch('getAddress')
   },
   mounted() {

@@ -87,7 +87,6 @@ export default {
   },
   watch: {
     depositList(val) {
-      console.log(val)
       this.currentProduct=val;      
       this.rate=val.sale_rate.replace('%', '')
       this.balance=val.residue_quota/10000+ '万元'
@@ -95,7 +94,6 @@ export default {
     }
   },
   created() {
-     console.log(this.GetRequest());
     let productId=this.GetRequest().id;
     let type=this.GetRequest().type;
     this.depositListQry({id:productId,type:type});
