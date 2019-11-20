@@ -12,9 +12,9 @@ export default {
       let deviceAddress=''
       let data = getDeviceOS();
       if(data==='ios'){
-          deviceAddress='https://www.baidu.com'
+          deviceAddress='https://apps.apple.com/cn/app/le-shan-shang-ye-yin-xing/id1131143701'
       }else{
-          deviceAddress='https://vuex.vuejs.org/'
+          deviceAddress='https://sj.qq.com/myapp/detail.htm?apkName=com.csii.LeShanBank'
       }
       this.qrcode(deviceAddress);
     },
