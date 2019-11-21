@@ -29,7 +29,7 @@
         <div class="section_center">
             <timePaint :time-data="currentProduct" v-show="showTime"></timePaint>
             <div class="form_input margin_15">  
-              <p>{{currentProduct.prod_lifecycle?currentProduct.prod_lifecycle==='6'?fmtMyByTenthdAndThd(currentProduct.min_pchs_p):fmtMyByTenthdAndThd(currentProduct.min_subs_p):'--'}}起购 | 剩余额度：{{balance}}</p>
+              <p>{{currentProduct.prod_lifecycle?currentProduct.prod_lifecycle==='6'?fmtMyByTenthdAndThd(currentProduct.min_pchs_p):fmtMyByTenthdAndThd(currentProduct.min_subs_p):'--'}}起购 | 已售额度：{{balance}}</p>
               <!-- <p>1万元起购 | 剩余额度：{{currentProduct&&currentProduct.total_quota&&currentProduct.canuser_amt?(currentProduct.total_quota-currentProduct.canuser_amt)/10000+ '万元':'--'}}</p>  -->
             </div>
             <div v-for="(item,index) in rules" :key="index" class="form_input"> 
@@ -39,7 +39,7 @@
             
         </div>
         <div class="section_bottom">
-            <qrCode></qrCode>
+            <qrCode :page='1'></qrCode>
         </div>
       </section>
       <footer class="footer_deposit">

@@ -2,10 +2,10 @@
     <div style="overflow: hidden;">
       <header class="title_deposit">
         <p>
-          {{currentProduct.prod_name}}
+          {{urlType}}
         </p>
         <p>
-          大额存单产品名称
+          {{currentProduct.prod_name}}          
         </p>
       </header>
       <section class="section_deposit">
@@ -16,7 +16,7 @@
                    {{rate|rateFloat}}%
                 </p> 
                 <p>
-                  预期年化收益率
+                  年利率
                 </p>  
             </div>
          </div>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="section_bottom">
-            <qrCode></qrCode>
+            <qrCode :page='2'></qrCode>
         </div>
       </section>
       <footer class="footer_deposit">
@@ -82,7 +82,8 @@ export default {
       rate:'',
       balance:'--',
       switchOn:true,
-      tip:''
+      tip:'',
+      urlType:''
     };
   },
   watch: {
@@ -98,8 +99,10 @@ export default {
     let type=this.GetRequest().type;
     this.depositListQry({id:productId,type:type});
     if(type==='1'){
+      this.urlType="大额存单"
       this.tip='阶梯利率、随存随取、保本保息'
-    }else{
+    }else if(type==='2'){
+      this.urlType="乐惠存"
       this.tip='智能计息、存取便利、存款保障'
     }
   },

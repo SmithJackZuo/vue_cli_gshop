@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import VueLazyLoad from 'vue-lazyload'
 import loading from '../static/img/loading.gif'
+import $ from 'jquery'
 
 // import './mock/mockServer' //是否使用mock数据
 
