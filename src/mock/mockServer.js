@@ -3,10 +3,9 @@
  */
 import Mock from 'mockjs'
 import data from './data.json'
-
 // 返回goods的接口
-Mock.mock('/api/ares-mobile-gateway/safe/finProductInfoQry.do', data.moneyManage)
-Mock.mock('/api/ares-mobile-gateway/lsDeposit/depositProdInfo.do', data.deposit)
+Mock.mock('/api/sit_safe/finProductInfoQry.do', data.moneyManage)
+Mock.mock('/api/sit_lsDeposit/depositProdInfo.do', data.deposit)
 
 /*
 //备注 解开main中的引入

@@ -101,9 +101,9 @@
         }
         .form_radio{       
             line-height: 0.52rem;
-            input{
-                margin-left: 0.15rem;
-            }
+            label{
+                margin-left: 0.15rem;     
+            }      
         }
       }   
     }
@@ -126,5 +126,24 @@
         font-size: 14px;
     }
 }
-
+input[type="radio"] + label::before {
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.05rem;
+    height: 0.05rem;
+    margin-right: 0.04rem;
+    border-radius: 50%;
+    border: 1px solid #583033;
+    padding: 0.02rem;
+}
+input[type="radio"]:checked + label::before {
+    background-color: #1c2722;
+    background-clip: content-box;
+}
+input[type="radio"] {
+    display: none;
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
 
